@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AudionavProfile" load_steps=2 format=3 uid="uid://c40g2aax5fyu6"]
+
+[ext_resource type="Script" uid="uid://bbtyibmi3bqqu" path="res://addons/audionav_plugin/scripts/audionav_profile.gd" id="1_mtayk"]
+
+[resource]
+script = ExtResource("1_mtayk")
+metadata/_custom_type_script = "uid://bbtyibmi3bqqu"
