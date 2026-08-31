@@ -1,7 +1,49 @@
-[gd_resource type="Resource" script_class="AudionavProfile" load_steps=2 format=3 uid="uid://c40g2aax5fyu6"]
+[gd_resource type="Resource" script_class="AudionavProfile" load_steps=2 format=3 uid="uid://b6m4a1onimpx"]
 
 [ext_resource type="Script" uid="uid://bbtyibmi3bqqu" path="res://addons/audionav_plugin/scripts/audionav_profile.gd" id="1_mtayk"]
 
 [resource]
 script = ExtResource("1_mtayk")
+AudionavLeft = {
+"name": "AudionavLeft",
+"pan": -1.0,
+"panning_enabled": true,
+"reverb_enabled": false,
+"send": &"",
+"volume_db": -4.002995
+}
+AudionavRight = {
+"name": "AudionavRight",
+"pan": 1.0,
+"panning_enabled": true,
+"reverb_enabled": false,
+"send": &"",
+"volume_db": -4.002995
+}
+AudionavFront = {
+"damping": 0.05,
+"name": "AudionavFront",
+"pan": 0.0,
+"panning_enabled": true,
+"predelay_msec": -9.0,
+"reverb_enabled": true,
+"room_size": 0.1,
+"send": &"",
+"spread": 0.2,
+"volume_db": -1.002995,
+"wet": 0.2
+}
+AudionavBack = {
+"damping": 0.1,
+"name": "AudionavBack",
+"pan": 0.0,
+"panning_enabled": true,
+"predelay_msec": 95.0,
+"reverb_enabled": true,
+"room_size": 0.1,
+"send": &"",
+"spread": 1.0,
+"volume_db": -9.002995,
+"wet": 0.5
+}
 metadata/_custom_type_script = "uid://bbtyibmi3bqqu"

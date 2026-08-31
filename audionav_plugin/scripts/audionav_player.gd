@@ -52,6 +52,7 @@ func _ready() -> void:
 	
 
 func play_panned(audiostream: AudioStream, gainL: float, gainR: float, gainF: float, gainB: float) -> void:	
+	print("Playing ", audiostream, " to Left", linear_to_db(gainL), ", to Right", linear_to_db(gainR), ", to Front", linear_to_db(gainF), " and to Back", linear_to_db(gainB))
 	var playbackL: AudioStreamPlaybackPolyphonic = get_node("player_left").get_stream_playback()
 	playbackL.play_stream(audiostream, 0, linear_to_db(gainL), 1, 0, "AudionavLeft");
 	
@@ -63,4 +64,14 @@ func play_panned(audiostream: AudioStream, gainL: float, gainR: float, gainF: fl
 	
 	var playbackB: AudioStreamPlaybackPolyphonic = get_node("player_back").get_stream_playback()
 	playbackB.play_stream(audiostream, 0, linear_to_db(gainB), 1, 0, "AudionavBack");
-	
+	#var playbackL: AudioStreamPlaybackPolyphonic = get_node("player_left").get_stream_playback()
+	#playbackL.play_stream(audiostream, 0, gainL, 1, 0, "AudionavLeft");
+	#
+	#var playbackR: AudioStreamPlaybackPolyphonic = get_node("player_right").get_stream_playback()
+	#playbackR.play_stream(audiostream, 0, gainR, 1, 0, "AudionavRight");
+	#
+	#var playbackF: AudioStreamPlaybackPolyphonic = get_node("player_front").get_stream_playback()
+	#playbackF.play_stream(audiostream, 0, gainF, 1, 0, "AudionavFront");
+	#
+	#var playbackB: AudioStreamPlaybackPolyphonic = get_node("player_back").get_stream_playback()
+	#playbackB.play_stream(audiostream, 0, gainB, 1, 0, "AudionavBack");

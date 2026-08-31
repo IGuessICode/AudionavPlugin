@@ -14,6 +14,8 @@ var keysound_setup = AudioStream
 # Points to the Container with the buttons to do the setup for each Direction bus
 @export var _direction_menu: VBoxContainer
 
+@export var _exit_button: Button
+
 ## FOR DEBUG
 #@export var _keysound: AudioStream
 
@@ -74,8 +76,12 @@ func _update_setup_ui():
 	if ongoing_setup: 
 		_direction_menu.mouse_filter = MOUSE_FILTER_IGNORE
 		_direction_menu.visible = false
+		_exit_button.mouse_filter = MOUSE_FILTER_IGNORE
+		_exit_button.visible = false
 		
 	else: 
 		_direction_menu.mouse_filter = MOUSE_FILTER_PASS
 		_direction_menu.visible = true
+		_exit_button.mouse_filter = MOUSE_FILTER_PASS
+		_exit_button.visible = true
 	

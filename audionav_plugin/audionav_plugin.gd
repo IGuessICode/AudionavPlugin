@@ -1,4 +1,5 @@
 @tool
+class_name AudionavPlugin_Core
 extends EditorPlugin
 
 var _route: String = "res://addons/audionav_plugin/resources/audionav_profile.tres" 
@@ -108,5 +109,4 @@ func _exit_tree() -> void:
 	for idx in bus_idxs:
 		if idx > 0:
 			AudioServer.remove_bus(idx)
-	
 	

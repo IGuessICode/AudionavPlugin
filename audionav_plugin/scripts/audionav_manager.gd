@@ -221,6 +221,9 @@ func load_profile():
 func create_profile():
 	# TBD: Future feature to be implemented with profile handling 
 	pass
+	
+func add_effect_area():
+	print("There is an ACCESSIBLE_AUDIOPLAYER in the scene tree")
 
 ## Godot "Life-Cycle" processing functions
 func _init():
@@ -252,17 +255,20 @@ func _ready() -> void:
 			i += 1
 		else:
 			push_error("Could not load Audionav Keysounds in path " + full_path)
+		
+	
 
 ## Audio Navigation functions
 func on_play_sound(audio_emitter: AccessibleAudioPlayer):
 	# Run when signal PLAY is received
 	print("Sound played by: ", audio_emitter.get_parent().name)
 	# Check if the maximum audio sources has been reached 
+	print("Current audio streams: ", _playing_audiostreams)
 	if _playing_audiostreams < _max_audiostreams:
 		_playing_audiostreams += 1
 		# Store audiostream in a temp variable for manipulation
 		var temp_audiostream: AudioStream
-		if audio_emitter.key_sound.empty():
+		if audio_emitter.key_sound == null:
 			temp_audiostream = _keysound_assign_by_mask()
 		else:
 			temp_audiostream = audio_emitter.key_sound.audio_sample
@@ -270,6 +276,7 @@ func on_play_sound(audio_emitter: AccessibleAudioPlayer):
 		_play_from_position(temp_audiostream, audio_emitter.relative_distance, audio_emitter.emission_radius)
 		
 	else:
+		print("Sound by ", audio_emitter.get_parent().name, " cannot be played. MAX Audiostreams reached")
 		audio_emitter.now_playing = false
 	
 
@@ -290,11 +297,12 @@ func _play_from_position(keysound: AudioStream, position: Vector2, emission_radi
 	if position.x < 0:
 		gain_L = (abs(position.x) - 0) / (emission_radius - 0)
 	# Calculate weight Front-Back
-	if position.y > 0:
-		gain_F = (position.y - 0) / (emission_radius - 0)
 	if position.y < 0:
+		gain_F = (position.y - 0) / (emission_radius - 0)
+	if position.y > 0:
 		gain_B = (abs(position.y) - 0) / (emission_radius - 0)
 	# Play: Stream -> Player_X -> Audionav_X
+	print("Sending ", keysound, " to Left", gain_L, ", to Right", gain_R, ", to Front", gain_F, " and to Back", gain_B)
 	AUDIONAV_PLAY_PANNED.emit(keysound, gain_L, gain_R, gain_F, gain_B)	
 	
 

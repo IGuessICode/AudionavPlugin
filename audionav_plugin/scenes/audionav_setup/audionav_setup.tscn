@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://copcrw41tf2wn"]
+[gd_scene load_steps=12 format=3 uid="uid://copcrw41tf2wn"]
 
 [ext_resource type="Script" uid="uid://qgi24ae00t57" path="res://addons/audionav_plugin/scenes/audionav_setup/audionav_setup.gd" id="1_7t3r1"]
 [ext_resource type="Script" uid="uid://b52j4ps0t56yo" path="res://addons/audionav_plugin/scenes/audionav_setup/set_left.gd" id="2_7t3r1"]
@@ -6,8 +6,13 @@
 [ext_resource type="Script" uid="uid://d1hn21ypesdwv" path="res://addons/audionav_plugin/scenes/audionav_setup/set_right.gd" id="4_cp3pg"]
 [ext_resource type="Script" uid="uid://bf55nxj4n4gc3" path="res://addons/audionav_plugin/scenes/audionav_setup/set_front.gd" id="5_uebas"]
 [ext_resource type="Script" uid="uid://ds6iyay0g7gib" path="res://addons/audionav_plugin/scenes/audionav_setup/set_back.gd" id="6_323te"]
+[ext_resource type="StyleBox" uid="uid://cygwa2gms73nm" path="res://button_styles/normal.tres" id="7_ncoge"]
+[ext_resource type="StyleBox" uid="uid://d0ityyyjci2wu" path="res://button_styles/pressed.tres" id="8_iw56k"]
+[ext_resource type="StyleBox" uid="uid://dlkom164tyv4k" path="res://button_styles/hover.tres" id="9_xyw3u"]
+[ext_resource type="StyleBox" uid="uid://c3ycot6w6ayo7" path="res://button_styles/focused.tres" id="10_xu3od"]
+[ext_resource type="Script" uid="uid://dbip3fvt0ql52" path="res://escenas/escena_final/exit_button.gd" id="11_cr74i"]
 
-[node name="AudionavSetup" type="Control" node_paths=PackedStringArray("_direction_menu")]
+[node name="AudionavSetup" type="Control" node_paths=PackedStringArray("_direction_menu", "_exit_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7t3r1")
 _direction_menu = NodePath("DirectionMenu")
+_exit_button = NodePath("Exit_button")
 
 [node name="DirectionMenu" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -77,3 +83,18 @@ script = ExtResource("6_323te")
 [node name="AudionavPlayer" type="Node" parent="."]
 script = ExtResource("4_at2rb")
 metadata/_custom_type_script = "uid://duii6yt05u1p5"
+
+[node name="Exit_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 525.0
+offset_right = 1075.0
+offset_bottom = 596.0
+accessibility_name = "Exit"
+accessibility_description = "Go back to the main menu."
+theme_override_styles/normal = ExtResource("7_ncoge")
+theme_override_styles/pressed = ExtResource("8_iw56k")
+theme_override_styles/hover = ExtResource("9_xyw3u")
+theme_override_styles/focus = ExtResource("10_xu3od")
+text = "Save and exit"
+script = ExtResource("11_cr74i")
