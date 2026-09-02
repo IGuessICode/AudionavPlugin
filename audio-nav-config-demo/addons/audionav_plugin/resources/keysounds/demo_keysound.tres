@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="KeySoundPreset" load_steps=3 format=3 uid="uid://b8ftp6w26u1v6"]
+
+[ext_resource type="Script" uid="uid://b0bkijxe6tvfn" path="res://addons/audionav_plugin/scripts/key_sound_preset.gd" id="1_qc5ln"]
+[ext_resource type="AudioStream" uid="uid://dvswc5r7fevxp" path="res://MusicNEffects/836452__feraly__simple-or-cute-ui-ux-interface-pause-sound.wav" id="1_vg7vb"]
+
+[resource]
+script = ExtResource("1_qc5ln")
+audio_sample = ExtResource("1_vg7vb")
+metadata/_custom_type_script = "uid://b0bkijxe6tvfn"
