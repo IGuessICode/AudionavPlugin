@@ -1,0 +1,166 @@
+[gd_scene load_steps=18 format=3 uid="uid://copcrw41tf2wn"]
+
+[ext_resource type="Script" uid="uid://qgi24ae00t57" path="res://scenes/audionav_setup/audionav_setup.gd" id="1_7t3r1"]
+[ext_resource type="Script" uid="uid://b52j4ps0t56yo" path="res://scenes/audionav_setup/set_left.gd" id="2_7t3r1"]
+[ext_resource type="Texture2D" uid="uid://cwchy7cwfaq5x" path="res://rsc/visuals/fondo_demo.png" id="2_nsx8o"]
+[ext_resource type="Theme" uid="uid://oblnwq031yv0" path="res://rsc/menu_theme.tres" id="3_8monq"]
+[ext_resource type="Script" uid="uid://duii6yt05u1p5" path="res://addons/audionav_plugin/scripts/audionav_player.gd" id="4_at2rb"]
+[ext_resource type="Script" uid="uid://d1hn21ypesdwv" path="res://scenes/audionav_setup/set_right.gd" id="4_cp3pg"]
+[ext_resource type="StyleBox" uid="uid://d0f4biwp70kdd" path="res://rsc/button_styles/normal.tres" id="4_guh24"]
+[ext_resource type="StyleBox" uid="uid://ci6bt2gojwb36" path="res://rsc/button_styles/pressed.tres" id="5_d8rtt"]
+[ext_resource type="Script" uid="uid://bf55nxj4n4gc3" path="res://scenes/audionav_setup/set_front.gd" id="5_uebas"]
+[ext_resource type="StyleBox" uid="uid://ckmybvctw4j71" path="res://rsc/button_styles/hover.tres" id="6_5xnf5"]
+[ext_resource type="Script" uid="uid://ds6iyay0g7gib" path="res://scenes/audionav_setup/set_back.gd" id="6_323te"]
+[ext_resource type="PackedScene" uid="uid://dq1pf2vtj686n" path="res://scenes/Components/tts_component.tscn" id="7_0xrac"]
+[ext_resource type="StyleBox" uid="uid://6806mk3abtk5" path="res://rsc/button_styles/disabled.tres" id="7_jp80e"]
+[ext_resource type="Script" uid="uid://cbh127vop3vk6" path="res://scenes/audionav_setup/exit_button.gd" id="7_ttdcy"]
+[ext_resource type="Script" uid="uid://djpmyj4c37rhl" path="res://scripts/tts_data.gd" id="8_rp8mo"]
+[ext_resource type="StyleBox" uid="uid://byk10ms4fin5q" path="res://rsc/button_styles/focus.tres" id="8_y2srt"]
+
+[sub_resource type="Resource" id="Resource_asmiw"]
+script = ExtResource("8_rp8mo")
+target = NodePath("../Exit_button")
+description = "Save and exit"
+metadata/_custom_type_script = "uid://djpmyj4c37rhl"
+
+[node name="AudionavSetup" type="Control" node_paths=PackedStringArray("_direction_menu", "_exit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7t3r1")
+_panning_step = 0.1
+_delay_step = null
+_volume_step = null
+_direction_menu = NodePath("DirectionMenu")
+_exit_button = NodePath("Exit_button")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nsx8o")
+expand_mode = 3
+
+[node name="DirectionMenu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 168.0
+offset_top = 23.0
+offset_right = 492.25
+offset_bottom = 621.0
+accessibility_name = "Audionav Menu"
+accessibility_description = "Setup the inmerssive audio sources for a custom gameplay."
+
+[node name="SetLeft" type="Button" parent="DirectionMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../Exit_button")
+accessibility_name = "Set Left"
+accessibility_description = "Move the following sound until you can hear it coming from your left, then look for save button to save the custom configuration."
+theme = ExtResource("3_8monq")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("4_guh24")
+theme_override_styles/pressed = ExtResource("5_d8rtt")
+theme_override_styles/hover = ExtResource("6_5xnf5")
+theme_override_styles/disabled = ExtResource("7_jp80e")
+theme_override_styles/focus = ExtResource("8_y2srt")
+text = "Set left"
+language = "en"
+script = ExtResource("2_7t3r1")
+
+[node name="SetRight" type="Button" parent="DirectionMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../Exit_button")
+accessibility_name = "Set right"
+accessibility_description = "Move the following sound until you can hear it coming from your right, then look for save button to save the custom configuration."
+theme = ExtResource("3_8monq")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("4_guh24")
+theme_override_styles/pressed = ExtResource("5_d8rtt")
+theme_override_styles/hover = ExtResource("6_5xnf5")
+theme_override_styles/disabled = ExtResource("7_jp80e")
+theme_override_styles/focus = ExtResource("8_y2srt")
+text = "Set right"
+language = "en"
+script = ExtResource("4_cp3pg")
+
+[node name="SetFront" type="Button" parent="DirectionMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../Exit_button")
+accessibility_name = "Set front"
+accessibility_description = "Move the following sound until you can hear it coming from in front of you, then look for save button to save the custom configuration."
+theme = ExtResource("3_8monq")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("4_guh24")
+theme_override_styles/pressed = ExtResource("5_d8rtt")
+theme_override_styles/hover = ExtResource("6_5xnf5")
+theme_override_styles/disabled = ExtResource("7_jp80e")
+theme_override_styles/focus = ExtResource("8_y2srt")
+text = "Set front"
+language = "en"
+script = ExtResource("5_uebas")
+
+[node name="SetBack" type="Button" parent="DirectionMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_right = NodePath("../../Exit_button")
+accessibility_name = "Set back"
+accessibility_description = "Move the following sound until you can hear it coming from your back, then look for save button to save the custom configuration."
+theme = ExtResource("3_8monq")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("4_guh24")
+theme_override_styles/pressed = ExtResource("5_d8rtt")
+theme_override_styles/hover = ExtResource("6_5xnf5")
+theme_override_styles/disabled = ExtResource("7_jp80e")
+theme_override_styles/focus = ExtResource("8_y2srt")
+text = "Set back"
+language = "en"
+script = ExtResource("6_323te")
+
+[node name="AudionavPlayer" type="Node" parent="."]
+script = ExtResource("4_at2rb")
+metadata/_custom_type_script = "uid://duii6yt05u1p5"
+
+[node name="Exit_button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 742.0
+offset_top = 525.0
+offset_right = 1075.0
+offset_bottom = 596.0
+focus_neighbor_left = NodePath("../DirectionMenu/SetBack")
+focus_neighbor_top = NodePath("../DirectionMenu/SetLeft")
+focus_neighbor_right = NodePath("../DirectionMenu/SetLeft")
+focus_neighbor_bottom = NodePath("../DirectionMenu/SetBack")
+accessibility_name = "Exit"
+accessibility_description = "Go back to the main menu."
+theme = ExtResource("3_8monq")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = ExtResource("4_guh24")
+theme_override_styles/pressed = ExtResource("5_d8rtt")
+theme_override_styles/hover = ExtResource("6_5xnf5")
+theme_override_styles/disabled = ExtResource("7_jp80e")
+theme_override_styles/focus = ExtResource("8_y2srt")
+text = "Save and exit"
+script = ExtResource("7_ttdcy")
+
+[node name="TTSComponent" parent="." instance=ExtResource("7_0xrac")]
+unique_name_in_owner = true
+tts_nodes = Array[ExtResource("8_rp8mo")]([SubResource("Resource_asmiw")])
+introduction = "Settings Screen, Select direction to configure, Currently selected: Set Left, Press D for details"
+start_automatically = true

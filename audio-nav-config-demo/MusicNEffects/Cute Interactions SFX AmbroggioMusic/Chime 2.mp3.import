@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqv556u4xegde"
+path="res://.godot/imported/Chime 2.mp3-717567aebd4de08ce1443d0810efb2b2.mp3str"
+
+[deps]
+
+source_file="res://MusicNEffects/Cute Interactions SFX AmbroggioMusic/Chime 2.mp3"
+dest_files=["res://.godot/imported/Chime 2.mp3-717567aebd4de08ce1443d0810efb2b2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

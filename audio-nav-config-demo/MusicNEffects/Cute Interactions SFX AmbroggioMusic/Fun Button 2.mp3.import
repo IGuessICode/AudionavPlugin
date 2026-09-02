@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wpxlynntuwgw"
+path="res://.godot/imported/Fun Button 2.mp3-01ce0351f7ed9e6e537f58c00a99cbbf.mp3str"
+
+[deps]
+
+source_file="res://MusicNEffects/Cute Interactions SFX AmbroggioMusic/Fun Button 2.mp3"
+dest_files=["res://.godot/imported/Fun Button 2.mp3-01ce0351f7ed9e6e537f58c00a99cbbf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brmmbk2mwl4cw"
+path="res://.godot/imported/Phone Ringtone.mp3-5297014d995b4079cd30365d56a2e851.mp3str"
+
+[deps]
+
+source_file="res://MusicNEffects/Cute Interactions SFX AmbroggioMusic/Phone Ringtone.mp3"
+dest_files=["res://.godot/imported/Phone Ringtone.mp3-5297014d995b4079cd30365d56a2e851.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

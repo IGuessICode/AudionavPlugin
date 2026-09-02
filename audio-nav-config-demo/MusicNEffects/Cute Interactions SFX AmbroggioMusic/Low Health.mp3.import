@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://fd86kxx6xtyy"
+path="res://.godot/imported/Low Health.mp3-2d6b8adb5899b4416d8b736714b0dd7d.mp3str"
+
+[deps]
+
+source_file="res://MusicNEffects/Cute Interactions SFX AmbroggioMusic/Low Health.mp3"
+dest_files=["res://.godot/imported/Low Health.mp3-2d6b8adb5899b4416d8b736714b0dd7d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

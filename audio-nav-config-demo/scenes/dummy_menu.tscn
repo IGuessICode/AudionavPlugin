@@ -1,0 +1,160 @@
+[gd_scene load_steps=21 format=3 uid="uid://brp2nyrwtfepv"]
+
+[ext_resource type="Script" uid="uid://cr5u8smmiygh4" path="res://scenes/dummy_menu.gd" id="1_yefqc"]
+[ext_resource type="PackedScene" uid="uid://dq1pf2vtj686n" path="res://scenes/Components/tts_component.tscn" id="2_bpaqr"]
+[ext_resource type="Texture2D" uid="uid://cwchy7cwfaq5x" path="res://rsc/visuals/fondo_demo.png" id="2_kn7om"]
+[ext_resource type="Script" uid="uid://ipb66vd70jaf" path="res://scripts/button_scripts/button_settings.gd" id="2_wvad4"]
+[ext_resource type="Script" uid="uid://djpmyj4c37rhl" path="res://scripts/tts_data.gd" id="3_4dofl"]
+[ext_resource type="Texture2D" uid="uid://xg4qdnncrp58" path="res://rsc/visuals/logo_UC3M_narrow (1).png" id="3_31jeq"]
+[ext_resource type="Texture2D" uid="uid://fpx4xh08vuhy" path="res://rsc/visuals/AVElab.png" id="3_db8u1"]
+[ext_resource type="Script" uid="uid://dwcfpkmgxbh0e" path="res://scripts/button_scripts/button_exit.gd" id="3_xybri"]
+[ext_resource type="Texture2D" uid="uid://mfrubt7tt0jk" path="res://addons/audionav_plugin/icons/accessible_audioplayer_icon.png" id="4_n6yy7"]
+[ext_resource type="FontFile" uid="uid://dvvm8detwmkc7" path="res://rsc/fonts/_OpenDyslexic3-Regular.ttf" id="5_rgqts"]
+[ext_resource type="Theme" uid="uid://oblnwq031yv0" path="res://rsc/menu_theme.tres" id="7_hdy40"]
+[ext_resource type="StyleBox" uid="uid://d0f4biwp70kdd" path="res://rsc/button_styles/normal.tres" id="8_dio85"]
+[ext_resource type="StyleBox" uid="uid://ci6bt2gojwb36" path="res://rsc/button_styles/pressed.tres" id="9_jmmw7"]
+[ext_resource type="StyleBox" uid="uid://ckmybvctw4j71" path="res://rsc/button_styles/hover.tres" id="10_dlahq"]
+[ext_resource type="AudioStream" uid="uid://ccwslarxo5m8p" path="res://MusicNEffects/loop white cat.wav" id="10_rgqts"]
+[ext_resource type="StyleBox" uid="uid://6806mk3abtk5" path="res://rsc/button_styles/disabled.tres" id="11_e4i44"]
+[ext_resource type="StyleBox" uid="uid://byk10ms4fin5q" path="res://rsc/button_styles/focus.tres" id="12_x6yoh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_db8u1"]
+font = ExtResource("5_rgqts")
+font_size = 36
+font_color = Color(0.25280762, 0.5244961, 0.59375, 1)
+outline_color = Color(0.49803922, 0.7058824, 0.7607843, 1)
+
+[sub_resource type="Resource" id="Resource_wvad4"]
+script = ExtResource("3_4dofl")
+target = NodePath("../VBoxContainer/ButtonSettings")
+description = "Settings"
+metadata/_custom_type_script = "uid://djpmyj4c37rhl"
+
+[sub_resource type="Resource" id="Resource_xybri"]
+script = ExtResource("3_4dofl")
+target = NodePath("../VBoxContainer/ButtonExit")
+description = "Exit"
+metadata/_custom_type_script = "uid://djpmyj4c37rhl"
+
+[node name="DummyMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yefqc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kn7om")
+expand_mode = 3
+
+[node name="AVELab_TM" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -270.0
+offset_right = -71.0
+offset_bottom = -81.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_db8u1")
+expand_mode = 3
+
+[node name="uc3m_logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -247.99994
+offset_top = -94.0
+offset_right = -21.415527
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_31jeq")
+expand_mode = 3
+
+[node name="AudioNav_logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1082.0
+offset_top = -597.0
+offset_right = -995.0
+offset_bottom = -510.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_n6yy7")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 49.0
+offset_right = 686.0
+offset_bottom = 122.0
+text = "Audio Navigation [Demo]"
+label_settings = SubResource("LabelSettings_db8u1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 165.0
+offset_right = 735.0
+offset_bottom = 484.0
+
+[node name="ButtonSettings" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+accessibility_name = "Settings"
+theme = ExtResource("7_hdy40")
+theme_override_fonts/font = ExtResource("5_rgqts")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("8_dio85")
+theme_override_styles/pressed = ExtResource("9_jmmw7")
+theme_override_styles/hover = ExtResource("10_dlahq")
+theme_override_styles/disabled = ExtResource("11_e4i44")
+theme_override_styles/focus = ExtResource("12_x6yoh")
+text = "Settings"
+script = ExtResource("2_wvad4")
+
+[node name="ButtonExit" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7_hdy40")
+theme_override_styles/normal = ExtResource("8_dio85")
+theme_override_styles/pressed = ExtResource("9_jmmw7")
+theme_override_styles/hover = ExtResource("10_dlahq")
+theme_override_styles/disabled = ExtResource("11_e4i44")
+theme_override_styles/focus = ExtResource("12_x6yoh")
+text = "Exit"
+script = ExtResource("3_xybri")
+
+[node name="TTSComponent" parent="." instance=ExtResource("2_bpaqr")]
+tts_nodes = Array[ExtResource("3_4dofl")]([SubResource("Resource_wvad4"), SubResource("Resource_xybri")])
+introduction = "Welcome, you are in the Audio Navigation Demo Menu. Currectly selected: Settings."
+start_automatically = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_rgqts")
+volume_db = -35.0
+autoplay = true
+bus = &"BGM"
