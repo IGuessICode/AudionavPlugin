@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=4 uid="uid://ryf3vuhkpdeq"]
+
+[ext_resource type="PackedScene" uid="uid://bdydoox7x6h3t" path="res://escenas/bordes/bordes.tscn" id="1_p0y22"]
+[ext_resource type="PackedScene" uid="uid://crlnne4j8reo" path="res://escenas/contenedor_monedas/contenedor_monedas.tscn" id="2_ot1hf"]
+[ext_resource type="PackedScene" uid="uid://i6o1n3rfrxyx" path="res://escenas/Personaje/personaje.tscn" id="3_486fs"]
+[ext_resource type="PackedScene" uid="uid://3ur0vphetpwk" path="res://escenas/Moneda/moneda.tscn" id="3_ot1hf"]
+[ext_resource type="TileSet" uid="uid://6vhje542g54" path="res://tile_sets/mazmorra.tres" id="4_oi5hs"]
+
+[node name="nivel_2" type="Node2D"]
+
+[node name="Bordes" parent="." instance=ExtResource("1_p0y22")]
+
+[node name="ContenedorMonedas" parent="." instance=ExtResource("2_ot1hf")]
+
+[node name="moneda" parent="ContenedorMonedas" instance=ExtResource("3_ot1hf")]
+position = Vector2(-170, 94)
+
+[node name="moneda2" parent="ContenedorMonedas" instance=ExtResource("3_ot1hf")]
+position = Vector2(144, 69)
+
+[node name="moneda3" parent="ContenedorMonedas" instance=ExtResource("3_ot1hf")]
+position = Vector2(80, 37)
+
+[node name="moneda4" parent="ContenedorMonedas" instance=ExtResource("3_ot1hf")]
+position = Vector2(15, 5)
+
+[node name="moneda5" parent="ContenedorMonedas" instance=ExtResource("3_ot1hf")]
+position = Vector2(30, -84)
+
+[node name="Personaje" parent="." instance=ExtResource("3_486fs")]
+position = Vector2(192, 105)
+
+[node name="Nivel" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD6/wAAAAAAAAAAAAD3/wAAAAADAAEAAAD2/wAAAAAAAAAAAAD1/wAAAAAAAAAAAAD0/wAAAAAAAAAAAADz/wAAAAAAAAAAAAAJAAYAAAAAAAAAAAAJAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAYAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAABAAIAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAADz//3/AAACAAAAAAD0//3/AAACAAAAAAAAAPz/AAACAAAAAAABAPz/AAACAAAAAAACAPz/AAACAAAAAAADAPz/AAACAAAAAAAKAPz/AAACAAAAAAAJAPz/AAACAAAAAAAIAPz/AAACAAAAAAAHAPz/AAACAAAAAAD3//v/AAAAAAAAAAD4//v/AAAAAAAAAAD5//v/AAAAAAAAAAD6//v/AAAAAAAAAAD7//v/AAAAAAAAAAD8//v/AAAAAAAAAAD9//v/AAAAAAAAAAD2//v/AAAAAAAAAAD5/wAAAAAAAAAAAAD4/wAAAAADAAEAAAD5/wYAAAAAAAAAAAD5/wUAAAAAAAAAAAD5/wQAAAAAAAAAAAD4/wQAAAACAAIAAAD4/wUAAAACAAIAAAD4/wYAAAACAAIAAAD6/wQAAAABAAIAAAD6/wUAAAABAAIAAAD6/wYAAAABAAIAAAA=")
+tile_set = ExtResource("4_oi5hs")
+
+[node name="fondo" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAD2/wEAAAACAAMAAAD2/wIAAAACAAMAAAD2/wMAAAACAAMAAAD3/wEAAAACAAMAAAD9//z/AAACAAMAAAD9//3/AAACAAMAAAD8//z/AAACAAMAAAAIAPn/AAACAAMAAAAIAPr/AAACAAMAAAAIAPv/AAACAAMAAAAIAPz/AAACAAMAAAAIAP3/AAACAAMAAAAIAP7/AAACAAMAAAAIAP//AAACAAMAAAAIAAAAAAACAAMAAAAJAPn/AAACAAMAAAAJAPr/AAACAAMAAAAJAPv/AAACAAMAAAAJAPz/AAACAAMAAAAJAP3/AAACAAMAAAAJAP7/AAACAAMAAAADAPn/AAACAAMAAAADAPr/AAACAAMAAAADAPv/AAACAAMAAAADAPz/AAACAAMAAAADAP3/AAACAAMAAAADAP7/AAACAAMAAAAEAPn/AAACAAMAAAAEAPr/AAACAAMAAAD9/wEAAAACAAMAAAD9/wIAAAACAAMAAAD9/wMAAAACAAMAAAD8/wAAAAACAAMAAAD8/wEAAAACAAMAAAD8/wMAAAACAAMAAAD8/wIAAAACAAMAAAABAAUAAAAAAAMAAAAAAAQAAAAAAAMAAAD//wYAAAAAAAMAAAD9/wUAAAAAAAMAAAD+/wUAAAAAAAMAAAAKAAIAAAAAAAMAAAALAAEAAAAAAAMAAAALAAAAAAAAAAMAAAAMAAAAAAAAAAMAAAD3//7/AAAAAAMAAAD4//3/AAAAAAMAAAD5//3/AAAAAAMAAADz//n/AAAAAAMAAAD0//r/AAAAAAMAAADz/wIAAAAAAAMAAAD0/wEAAAAAAAMAAAA=")
+tile_set = ExtResource("4_oi5hs")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="KeySoundPreset" load_steps=3 format=3 uid="uid://b8ftp6w26u1v6"]
+
+[ext_resource type="AudioStream" uid="uid://bo525kj87ngda" path="res://sonidos/Notification  Alert.mp3" id="1_8onbb"]
+[ext_resource type="Script" uid="uid://b0bkijxe6tvfn" path="res://addons/audionav_plugin/scripts/key_sound_preset.gd" id="1_qc5ln"]
+
+[resource]
+script = ExtResource("1_qc5ln")
+audio_sample = ExtResource("1_8onbb")
+metadata/_custom_type_script = "uid://b0bkijxe6tvfn"

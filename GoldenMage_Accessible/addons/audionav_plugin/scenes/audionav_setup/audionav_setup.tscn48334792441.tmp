@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://copcrw41tf2wn"]
+
+[ext_resource type="Script" uid="uid://qgi24ae00t57" path="res://addons/audionav_plugin/scenes/audionav_setup/audionav_setup.gd" id="1_7t3r1"]
+[ext_resource type="Script" uid="uid://b52j4ps0t56yo" path="res://addons/audionav_plugin/scenes/audionav_setup/set_left.gd" id="2_7t3r1"]
+[ext_resource type="Script" uid="uid://duii6yt05u1p5" path="res://addons/audionav_plugin/scripts/audionav_player.gd" id="4_at2rb"]
+[ext_resource type="Script" uid="uid://d1hn21ypesdwv" path="res://addons/audionav_plugin/scenes/audionav_setup/set_right.gd" id="4_cp3pg"]
+[ext_resource type="Script" uid="uid://bf55nxj4n4gc3" path="res://addons/audionav_plugin/scenes/audionav_setup/set_front.gd" id="5_uebas"]
+[ext_resource type="Script" uid="uid://ds6iyay0g7gib" path="res://addons/audionav_plugin/scenes/audionav_setup/set_back.gd" id="6_323te"]
+
+[node name="AudionavSetup" type="Control" node_paths=PackedStringArray("_direction_menu")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7t3r1")
+_direction_menu = NodePath("DirectionMenu")
+
+[node name="DirectionMenu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 168.0
+offset_top = 23.0
+offset_right = 492.25
+offset_bottom = 621.0
+accessibility_name = "Audionav Menu"
+accessibility_description = "Setup the inmerssive audio sources for a custom gameplay."
+
+[node name="SetLeft" type="Button" parent="DirectionMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 3
+accessibility_name = "Set Left"
+accessibility_description = "Move the following sound until you can hear it coming from your left, then look for save button to save the custom configuration."
+theme_override_font_sizes/font_size = 32
+text = "Set left"
+language = "en"
+script = ExtResource("2_7t3r1")
+
+[node name="SetRight" type="Button" parent="DirectionMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 3
+accessibility_name = "Set right"
+accessibility_description = "Move the following sound until you can hear it coming from your right, then look for save button to save the custom configuration."
+theme_override_font_sizes/font_size = 32
+text = "Set right"
+language = "en"
+script = ExtResource("4_cp3pg")
+
+[node name="SetFront" type="Button" parent="DirectionMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 3
+accessibility_name = "Set front"
+accessibility_description = "Move the following sound until you can hear it coming from in front of you, then look for save button to save the custom configuration."
+theme_override_font_sizes/font_size = 32
+text = "Set front"
+language = "en"
+script = ExtResource("5_uebas")
+
+[node name="SetBack" type="Button" parent="DirectionMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 3
+accessibility_name = "Set back"
+accessibility_description = "Move the following sound until you can hear it coming from your back, then look for save button to save the custom configuration."
+theme_override_font_sizes/font_size = 32
+text = "Set back"
+language = "en"
+script = ExtResource("6_323te")
+
+[node name="AudionavPlayer" type="Node" parent="."]
+script = ExtResource("4_at2rb")
+metadata/_custom_type_script = "uid://duii6yt05u1p5"

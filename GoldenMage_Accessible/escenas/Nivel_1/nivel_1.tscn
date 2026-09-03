@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=4 uid="uid://cc8sdppmn0p8y"]
+
+[ext_resource type="TileSet" uid="uid://6vhje542g54" path="res://tile_sets/mazmorra.tres" id="1_vkoij"]
+[ext_resource type="PackedScene" uid="uid://bdydoox7x6h3t" path="res://escenas/bordes/bordes.tscn" id="2_6uu45"]
+[ext_resource type="PackedScene" uid="uid://i6o1n3rfrxyx" path="res://escenas/Personaje/personaje.tscn" id="3_6uu45"]
+[ext_resource type="PackedScene" uid="uid://ccrrws4vxb835" path="res://escenas/Trampa/trampa.tscn" id="3_8dwcf"]
+[ext_resource type="PackedScene" uid="uid://3ur0vphetpwk" path="res://escenas/Moneda/moneda.tscn" id="4_0jut5"]
+[ext_resource type="PackedScene" uid="uid://crlnne4j8reo" path="res://escenas/contenedor_monedas/contenedor_monedas.tscn" id="4_8sx4v"]
+[ext_resource type="Resource" uid="uid://bglilqerau5pj" path="res://addons/audionav_plugin/resources/keysounds/spikes_keysound.tres" id="5_7188w"]
+[ext_resource type="Script" uid="uid://dwux06ey3kcxh" path="res://addons/audionav_plugin/scripts/accessible_audio_player.gd" id="6_hgxmg"]
+[ext_resource type="Resource" uid="uid://cahhcilyoth47" path="res://addons/audionav_plugin/resources/keysounds/coin_keysound.tres" id="7_si4j6"]
+[ext_resource type="Script" uid="uid://duii6yt05u1p5" path="res://addons/audionav_plugin/scripts/audionav_player.gd" id="9_si4j6"]
+
+[node name="Nivel1" type="Node2D"]
+
+[node name="Nivel" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD5/wYAAAAAAAAAAAD5/wUAAAAAAAAAAAD6/wUAAAAAAAAAAAD6/wYAAAAAAAAAAAD+/wMAAAAAAAAAAAD+/wQAAAAAAAAAAAD+/wUAAAAAAAAAAAD+/wYAAAAAAAAAAADz////AAAAAAAAAAD0////AAAAAAAAAAD1////AAAAAAAAAAD2////AAAAAAAAAAD3////AAAAAAAAAAD4////AAAAAAAAAAD5////AAAAAAAAAAD6////AAAAAAAAAAD7////AAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAKAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAD//wUAAAAAAAAAAAD//wYAAAAAAAAAAADz//7/AAAAAAAAAAD0//7/AAAAAAAAAAD1//7/AAAAAAAAAAD2//7/AAAAAAAAAAD3//7/AAAAAAAAAAD4//7/AAAAAAAAAAD5//7/AAAAAAAAAAD6//7/AAAAAAAAAAD7//7/AAAAAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAD5//3/AAAAAAAAAAD6//3/AAAAAAAAAADz//3/AAAAAAAAAAD0//3/AAAAAAAAAAD1//3/AAAAAAAAAAAMAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAALAP//AAAAAAAAAAALAP7/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAAAAAAIAPz/AAABAAAAAAAHAPz/AAABAAAAAAAGAPz/AAABAAAAAAD2//3/AAADAAEAAAD3//3/AAADAAEAAAD4//3/AAADAAEAAAD7//3/AAADAAEAAAD8//3/AAADAAEAAAD9//3/AAADAAEAAAAEAAMAAAACAAEAAAAFAAMAAAACAAEAAAAKAP7/AAACAAIAAAAKAP//AAACAAIAAAALAAQAAAACAAAAAAAMAAQAAAACAAAAAAAEAAIAAAACAAAAAAAFAAIAAAACAAAAAAAEAAAAAAACAAAAAAAFAAAAAAACAAAAAAALAAYAAAACAAAAAAAMAAYAAAACAAAAAAA=")
+tile_set = ExtResource("1_vkoij")
+
+[node name="Fondo" type="TileMapLayer" parent="."]
+z_index = -1
+tile_map_data = PackedByteArray("AAAEAPn/AAACAAMAAAAEAPr/AAACAAMAAAAEAPv/AAACAAMAAAAEAPz/AAACAAMAAAAEAP3/AAACAAMAAAAEAP7/AAACAAMAAAAEAP//AAACAAMAAAAEAAAAAAACAAMAAAAEAAEAAAACAAMAAAAEAAIAAAACAAMAAAAEAAMAAAACAAMAAAAEAAQAAAACAAMAAAAEAAUAAAACAAMAAAAEAAYAAAACAAMAAAAFAPn/AAACAAMAAAAFAPr/AAACAAMAAAAFAPv/AAACAAMAAAAFAPz/AAACAAMAAAAFAP3/AAACAAMAAAAFAP7/AAACAAMAAAAFAP//AAACAAMAAAAFAAAAAAACAAMAAAAFAAEAAAACAAMAAAAFAAIAAAACAAMAAAAFAAMAAAACAAMAAAAFAAQAAAACAAMAAAAFAAUAAAACAAMAAAAFAAYAAAACAAMAAAALAPn/AAACAAMAAAALAPr/AAACAAMAAAALAPv/AAACAAMAAAD8/wAAAAACAAMAAAD8/wEAAAACAAMAAAD3/wAAAAACAAMAAAD3/wEAAAACAAMAAAD3/wIAAAACAAMAAAD3/wMAAAACAAMAAAD3/wQAAAACAAMAAAD5/wAAAAACAAMAAAD7//n/AAACAAMAAAD7//r/AAACAAMAAAD9//n/AAACAAMAAAD9//r/AAACAAMAAAD9//v/AAACAAMAAAD1//n/AAACAAMAAAA=")
+tile_set = ExtResource("1_vkoij")
+
+[node name="Bordes" parent="." instance=ExtResource("2_6uu45")]
+
+[node name="Trampa" parent="." instance=ExtResource("3_8dwcf")]
+position = Vector2(120, 8)
+
+[node name="placeholder_pinchos2" type="Node2D" parent="."]
+position = Vector2(-136, -48)
+
+[node name="Accessible Audio Player" type="AudioStreamPlayer" parent="placeholder_pinchos2"]
+script = ExtResource("6_hgxmg")
+key_sound = ExtResource("5_7188w")
+emission_radius = 225
+metadata/_custom_type_script = "uid://dwux06ey3kcxh"
+
+[node name="placeholder_pinchos3" type="Node2D" parent="."]
+position = Vector2(160, -16)
+
+[node name="Accessible Audio Player" type="AudioStreamPlayer" parent="placeholder_pinchos3"]
+script = ExtResource("6_hgxmg")
+key_sound = ExtResource("5_7188w")
+emission_radius = 225
+metadata/_custom_type_script = "uid://dwux06ey3kcxh"
+
+[node name="placeholder_pinchos4" type="Node2D" parent="."]
+position = Vector2(80, 49)
+
+[node name="Accessible Audio Player" type="AudioStreamPlayer" parent="placeholder_pinchos4"]
+script = ExtResource("6_hgxmg")
+key_sound = ExtResource("5_7188w")
+emission_radius = 225
+metadata/_custom_type_script = "uid://dwux06ey3kcxh"
+
+[node name="placeholder_pinchos" type="Node2D" parent="."]
+position = Vector2(-56, -49)
+
+[node name="Accessible Audio Player" type="AudioStreamPlayer" parent="placeholder_pinchos"]
+script = ExtResource("6_hgxmg")
+key_sound = ExtResource("5_7188w")
+emission_radius = 225
+metadata/_custom_type_script = "uid://dwux06ey3kcxh"
+
+[node name="ContenedorMonedas" parent="." instance=ExtResource("4_8sx4v")]
+
+[node name="moneda" parent="ContenedorMonedas" instance=ExtResource("4_0jut5")]
+position = Vector2(-15, -62)
+
+[node name="Accessible Audio Player" type="AudioStreamPlayer" parent="ContenedorMonedas/moneda"]
+script = ExtResource("6_hgxmg")
+key_sound = ExtResource("7_si4j6")
+emission_radius = 200
+metadata/_custom_type_script = "uid://dwux06ey3kcxh"
+
+[node name="moneda2" parent="ContenedorMonedas" instance=ExtResource("4_0jut5")]
+position = Vector2(-95, -62)
+
+[node name="Accessible Audio Player2" type="AudioStreamPlayer" parent="ContenedorMonedas/moneda2"]
+script = ExtResource("6_hgxmg")
+key_sound = ExtResource("7_si4j6")
+emission_radius = 200
+metadata/_custom_type_script = "uid://dwux06ey3kcxh"
+
+[node name="moneda3" parent="ContenedorMonedas" instance=ExtResource("4_0jut5")]
+position = Vector2(-184, -63)
+
+[node name="Accessible Audio Player3" type="AudioStreamPlayer" parent="ContenedorMonedas/moneda3"]
+script = ExtResource("6_hgxmg")
+key_sound = ExtResource("7_si4j6")
+emission_radius = 200
+metadata/_custom_type_script = "uid://dwux06ey3kcxh"
+
+[node name="Personaje" parent="." instance=ExtResource("3_6uu45")]
+position = Vector2(29, -31)
+
+[node name="Audionav Player" type="Node" parent="."]
+script = ExtResource("9_si4j6")
+metadata/_custom_type_script = "uid://duii6yt05u1p5"

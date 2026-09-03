@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="KeySoundPreset" load_steps=3 format=3 uid="uid://cahhcilyoth47"]
+
+[ext_resource type="AudioStream" uid="uid://b1t2p75t178hm" path="res://sonidos/Chime 1.mp3" id="1_gqxc6"]
+[ext_resource type="Script" uid="uid://b0bkijxe6tvfn" path="res://addons/audionav_plugin/scripts/key_sound_preset.gd" id="1_qejkn"]
+
+[resource]
+script = ExtResource("1_qejkn")
+type = 1
+audio_sample = ExtResource("1_gqxc6")
+pitch_randomness = 0.3
+metadata/_custom_type_script = "uid://b0bkijxe6tvfn"
