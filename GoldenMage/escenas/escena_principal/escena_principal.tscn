@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1o8d73leo1jm"]
+
+[ext_resource type="PackedScene" uid="uid://cc8sdppmn0p8y" path="res://escenas/Nivel_1/nivel_1.tscn" id="1_pdctq"]
+[ext_resource type="Script" uid="uid://hdp12jp5pjah" path="res://escenas/escena_principal/escena_principal.gd" id="1_snxy5"]
+[ext_resource type="PackedScene" uid="uid://ryf3vuhkpdeq" path="res://escenas/Nivel_2/nivel_2.tscn" id="3_yoxmf"]
+[ext_resource type="PackedScene" uid="uid://c7vxmtggw82ry" path="res://escenas/escena_final/escena_final.tscn" id="4_sbgap"]
+[ext_resource type="AudioStream" uid="uid://csyoql15iygaw" path="res://musica/musica.wav" id="5_rrast"]
+[ext_resource type="PackedScene" uid="uid://blva685dbms88" path="res://escenas/controlador_partida/controlador_partida.tscn" id="6_px6n3"]
+[ext_resource type="PackedScene" uid="uid://dw7vj3x62u4ig" path="res://escenas/contador_muertes/contador_muertes.tscn" id="6_y7kll"]
+[ext_resource type="Script" uid="uid://b3b1td7avgyvj" path="res://escenas/escena_principal/cotrolador_pausa.gd" id="8_e307b"]
+
+[node name="EscenaPrincipal" type="Node2D" node_paths=PackedStringArray("controlador_partida")]
+script = ExtResource("1_snxy5")
+niveles = Array[PackedScene]([ExtResource("1_pdctq"), ExtResource("3_yoxmf"), ExtResource("4_sbgap")])
+controlador_partida = NodePath("ControladorPartida")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.405, 2.405)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_rrast")
+autoplay = true
+bus = &"Music"
+
+[node name="ControladorPartida" parent="." instance=ExtResource("6_px6n3")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ContadorMuertes" parent="CanvasLayer" instance=ExtResource("6_y7kll")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_top = 16.915
+offset_right = 0.0
+offset_bottom = 16.915
+grow_vertical = 1
+
+[node name="CotroladorPausa" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("8_e307b")

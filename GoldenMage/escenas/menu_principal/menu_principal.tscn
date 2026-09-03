@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://bfih4ps0y6t7s"]
+
+[ext_resource type="Theme" uid="uid://c8onpw6w1ugms" path="res://themes/button_menu_principal.tres" id="1_1tgsf"]
+[ext_resource type="PackedScene" uid="uid://blva685dbms88" path="res://escenas/controlador_partida/controlador_partida.tscn" id="1_w4esp"]
+[ext_resource type="StyleBox" uid="uid://cygwa2gms73nm" path="res://button_styles/normal.tres" id="2_a8m85"]
+[ext_resource type="StyleBox" uid="uid://d0ityyyjci2wu" path="res://button_styles/pressed.tres" id="3_lbtcn"]
+[ext_resource type="StyleBox" uid="uid://dlkom164tyv4k" path="res://button_styles/hover.tres" id="4_hkuy5"]
+[ext_resource type="StyleBox" uid="uid://c3ycot6w6ayo7" path="res://button_styles/focused.tres" id="5_7mlcq"]
+[ext_resource type="Script" uid="uid://cfixdofvk5m7j" path="res://escenas/menu_principal/button_play.gd" id="6_hkuy5"]
+[ext_resource type="Script" uid="uid://bc5tfqo34d4la" path="res://escenas/menu_principal/button_exit.gd" id="6_lbtcn"]
+[ext_resource type="PackedScene" uid="uid://d1o8d73leo1jm" path="res://escenas/escena_principal/escena_principal.tscn" id="7_7mlcq"]
+[ext_resource type="Script" uid="uid://6lrymcdt3b0r" path="res://escenas/menu_principal/button_load.gd" id="9_cceyl"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a8m85"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 400, 1)
+spread = 0.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControladorPartida" parent="." instance=ExtResource("1_w4esp")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_1tgsf")
+theme_override_styles/normal = ExtResource("2_a8m85")
+theme_override_styles/pressed = ExtResource("3_lbtcn")
+theme_override_styles/hover = ExtResource("4_hkuy5")
+theme_override_styles/focus = ExtResource("5_7mlcq")
+text = "Play"
+script = ExtResource("6_hkuy5")
+escena_principal = ExtResource("7_7mlcq")
+
+[node name="Load" type="Button" parent="VBoxContainer" node_paths=PackedStringArray("controlador_partida", "boton_jugar")]
+layout_mode = 2
+theme = ExtResource("1_1tgsf")
+theme_override_styles/normal = ExtResource("2_a8m85")
+theme_override_styles/pressed = ExtResource("3_lbtcn")
+theme_override_styles/hover = ExtResource("4_hkuy5")
+theme_override_styles/focus = ExtResource("5_7mlcq")
+text = "Load"
+script = ExtResource("9_cceyl")
+controlador_partida = NodePath("../../ControladorPartida")
+boton_jugar = NodePath("../Play")
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_1tgsf")
+theme_override_styles/normal = ExtResource("2_a8m85")
+theme_override_styles/pressed = ExtResource("3_lbtcn")
+theme_override_styles/hover = ExtResource("4_hkuy5")
+theme_override_styles/focus = ExtResource("5_7mlcq")
+text = "Exit"
+script = ExtResource("6_lbtcn")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Control"]
+amount = 500
+lifetime = 20.0
+preprocess = 20.0
+process_material = SubResource("ParticleProcessMaterial_a8m85")
