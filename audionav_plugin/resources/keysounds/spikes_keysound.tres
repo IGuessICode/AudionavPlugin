@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="KeySoundPreset" load_steps=3 format=3 uid="uid://bglilqerau5pj"]
+
+[ext_resource type="AudioStream" uid="uid://cgitx144n4xu2" path="res://sonidos/Low Health.mp3" id="1_024bx"]
+[ext_resource type="Script" uid="uid://b0bkijxe6tvfn" path="res://addons/audionav_plugin/scripts/key_sound_preset.gd" id="1_ekg6f"]
+
+[resource]
+script = ExtResource("1_ekg6f")
+type = 3
+audio_sample = ExtResource("1_024bx")
+metadata/_custom_type_script = "uid://b0bkijxe6tvfn"

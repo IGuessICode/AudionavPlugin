@@ -12,7 +12,7 @@ signal AUDIONAV_PLAY_PANNED
 
 ### Variables
 var _max_audiostreams: int = 3 # 3 + bg_music = 4 audio sources MAX to avoid saturation
-var _playing_audiostreams: int
+var playing_audiostreams: int
 
 ### Functions
 ## Audio config management
@@ -229,7 +229,7 @@ func add_effect_area():
 func _init():
 	# Enable Always Process so audionavigation setup can still work when the game is paused by the player.
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	_playing_audiostreams = 0
+	playing_audiostreams = 0
 	
 	# Load profile
 	if ResourceLoader.exists(_routeProfile):
@@ -254,7 +254,7 @@ func _ready() -> void:
 			key_sound_presets.append(temp_rsc)
 			i += 1
 		else:
-			push_error("Could not load Audionav Keysounds in path " + full_path)
+			push_error("Could not load Audionav Keysounds in path " + full_path)	
 		
 	
 
@@ -263,9 +263,9 @@ func on_play_sound(audio_emitter: AccessibleAudioPlayer):
 	# Run when signal PLAY is received
 	print("Sound played by: ", audio_emitter.get_parent().name)
 	# Check if the maximum audio sources has been reached 
-	print("Current audio streams: ", _playing_audiostreams)
-	if _playing_audiostreams < _max_audiostreams:
-		_playing_audiostreams += 1
+	print("Current audio streams: ", playing_audiostreams)
+	if playing_audiostreams < _max_audiostreams:
+		playing_audiostreams += 1
 		# Store audiostream in a temp variable for manipulation
 		var temp_audiostream: AudioStream
 		if audio_emitter.key_sound == null:
@@ -291,16 +291,17 @@ func _play_from_position(keysound: AudioStream, position: Vector2, emission_radi
 	var gain_F: float = 0
 	var gain_B: float = 0
 
-	# Calculate weight Left-Right by normalizing the vector [0, 1]
+	# Calculate Left-Right by normalizing to [0.1, 2] (to fit linear_to_dB conversion)
 	if position.x > 0:
-		gain_R = (position.x - 0) / (emission_radius - 0)
+		gain_R = 0.1 + (position.x * 1.9) / emission_radius # (position.x - 0) / (emission_radius - 0)
 	if position.x < 0:
-		gain_L = (abs(position.x) - 0) / (emission_radius - 0)
-	# Calculate weight Front-Back
+		gain_L = 0.1 - (position.x * 1.9) / emission_radius # (abs(position.x) - 0) / (emission_radius - 0)
+	# Calculate Front-Back
 	if position.y < 0:
-		gain_F = (position.y - 0) / (emission_radius - 0)
+		gain_F = 0.1 - (position.y * 1.9) / emission_radius # (position.y - 0) / (emission_radius - 0)
 	if position.y > 0:
-		gain_B = (abs(position.y) - 0) / (emission_radius - 0)
+		gain_B = 0.1 + (position.y * 1.9) / emission_radius # (abs(position.y) - 0) / (emission_radius - 0)
+		
 	# Play: Stream -> Player_X -> Audionav_X
 	print("Sending ", keysound, " to Left", gain_L, ", to Right", gain_R, ", to Front", gain_F, " and to Back", gain_B)
 	AUDIONAV_PLAY_PANNED.emit(keysound, gain_L, gain_R, gain_F, gain_B)	

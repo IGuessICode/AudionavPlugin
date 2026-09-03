@@ -53,6 +53,14 @@ func _ready() -> void:
 
 func play_panned(audiostream: AudioStream, gainL: float, gainR: float, gainF: float, gainB: float) -> void:	
 	print("Playing ", audiostream, " to Left", linear_to_db(gainL), ", to Right", linear_to_db(gainR), ", to Front", linear_to_db(gainF), " and to Back", linear_to_db(gainB))
+	
+	## to-do: Store the play_stream() return(int) inside a data base and get Audionav Player to
+	#  check if playbackX.is_stream_playing(id) and if false:
+	#  1. AudionavManager.playing_audiostreams = AudionavManager.playing_audiostreams - 1
+	#  2. Delete id from database
+	##
+ 
+	
 	var playbackL: AudioStreamPlaybackPolyphonic = get_node("player_left").get_stream_playback()
 	playbackL.play_stream(audiostream, 0, linear_to_db(gainL), 1, 0, "AudionavLeft");
 	

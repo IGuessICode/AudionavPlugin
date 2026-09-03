@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 		var relative_distance_diagonal = pow(relative_distance.x, 2) + pow(relative_distance.y, 2)
 		# Scale the Debug emission radius to the size of the screen
 		var scaled_radius = (get_viewport().size.x / (16+14)) * emission_radius
-		print("Scale radius= ", get_viewport().size.x / (16+14))
+		# print("Scale radius= ", get_viewport().size.x / (16+14)) # FOR DEBUG
 		# Check if node is within audible range
 		if relative_distance_diagonal <= scaled_radius:
 			now_playing = true

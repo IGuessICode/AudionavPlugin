@@ -7,4 +7,5 @@
 script = ExtResource("1_qejkn")
 type = 1
 audio_sample = ExtResource("1_gqxc6")
+pitch_randomness = 0.3
 metadata/_custom_type_script = "uid://b0bkijxe6tvfn"
