@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bx1ou20vnpqcc"
+path="res://.godot/imported/Menu Close  Cancel.wav-dd7c692f7b5fee0198b5d69f03b6f470.sample"
+
+[deps]
+
+source_file="res://sonidos/Menu Close  Cancel.wav"
+dest_files=["res://.godot/imported/Menu Close  Cancel.wav-dd7c692f7b5fee0198b5d69f03b6f470.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

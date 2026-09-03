@@ -1,0 +1,73 @@
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://wngoy55hkm71"]
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_j3pel"]
+pan = -1.0
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_g28q7"]
+pan = 1.0
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_n8wo2"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_5t1r3"]
+predelay_msec = 0.0
+room_size = 0.1
+damping = 0.05
+spread = 0.2
+wet = 0.2
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_cenje"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_dqt2m"]
+predelay_msec = 80.0
+room_size = 0.1
+damping = 0.1
+
+[resource]
+bus/1/name = &"SFX"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -2.7102394
+bus/1/send = &"Master"
+bus/2/name = &"Music"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = -6.921826
+bus/2/send = &"Master"
+bus/3/name = &"AudionavLeft"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = -4.002995
+bus/3/send = &""
+bus/3/effect/0/effect = SubResource("AudioEffectPanner_j3pel")
+bus/3/effect/0/enabled = true
+bus/4/name = &"AudionavRight"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -4.002995
+bus/4/send = &""
+bus/4/effect/0/effect = SubResource("AudioEffectPanner_g28q7")
+bus/4/effect/0/enabled = true
+bus/5/name = &"AudionavFront"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -4.002995
+bus/5/send = &""
+bus/5/effect/0/effect = SubResource("AudioEffectPanner_n8wo2")
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectReverb_5t1r3")
+bus/5/effect/1/enabled = true
+bus/6/name = &"AudionavBack"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = -4.002995
+bus/6/send = &""
+bus/6/effect/0/effect = SubResource("AudioEffectPanner_cenje")
+bus/6/effect/0/enabled = true
+bus/6/effect/1/effect = SubResource("AudioEffectReverb_dqt2m")
+bus/6/effect/1/enabled = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bo525kj87ngda"
+path="res://.godot/imported/Notification  Alert.mp3-fc02226a2a06f93118430a48528c274c.mp3str"
+
+[deps]
+
+source_file="res://sonidos/Notification  Alert.mp3"
+dest_files=["res://.godot/imported/Notification  Alert.mp3-fc02226a2a06f93118430a48528c274c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgitx144n4xu2"
+path="res://.godot/imported/Low Health.mp3-d0d402df24408f833f94647e18453e53.mp3str"
+
+[deps]
+
+source_file="res://sonidos/Low Health.mp3"
+dest_files=["res://.godot/imported/Low Health.mp3-d0d402df24408f833f94647e18453e53.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
